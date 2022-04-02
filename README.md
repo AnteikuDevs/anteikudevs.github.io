@@ -1,5 +1,3 @@
-## Welcome to My GitHub Pages
-
 ### Hi there 👋
 
 ## I'm Teguh Sugiarto.
