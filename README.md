@@ -1,5 +1,7 @@
 ## AnteikuDevs
 
+<img src="greetings.gif" width="100%"/>
+
 ### Hi there 👋
 
 ## I'm Teguh Sugiarto.
