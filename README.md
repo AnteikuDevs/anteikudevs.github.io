@@ -1,4 +1,3 @@
-## AnteikuDevs
 
 <img src="greetings.gif" width="100%"/>
 
