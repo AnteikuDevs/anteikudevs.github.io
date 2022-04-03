@@ -2,7 +2,7 @@
 <img src="greetings.gif" width="100%"/>
 
 [paypal-badge]: https://img.shields.io/badge/Paypal-Donate!-%2300457C.svg?logo=paypal&style=flat-square
-[paypal-link]: https://www.paypal.com/donate?hosted_button_id=NKQEXWK3RQDPQ&source=url 
+[paypal-link]: https://paypal.me/AnteikuDevs/10 
 
 ### Hi there 👋
 
