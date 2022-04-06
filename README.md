@@ -1,5 +1,5 @@
 
-<img src="greetings.gif" width="100%"/>
+<img src="https://github.com/AnteikuDevs/AnteikuDevs/blob/main/__intro.gif" width="100%"/>
 
 [paypal-badge]: https://img.shields.io/badge/Paypal-Donate!-%2300457C.svg?logo=paypal&style=flat-square
 [paypal-link]: https://paypal.me/AnteikuDevs/10 
