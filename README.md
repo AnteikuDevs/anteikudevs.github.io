@@ -1,5 +1,5 @@
 
-<img src="https://github.com/AnteikuDevs/AnteikuDevs/blob/main/banner.png" width="100%"/>
+<img src="banner.png" width="100%"/>
 
 ### Halo Semua 👋
 ### Perkenalkan saya Teguh Sugiarto.
