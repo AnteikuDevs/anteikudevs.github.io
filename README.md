@@ -15,6 +15,22 @@ Halo! 👋 Saya **Teguh Sugiarto**. Seorang profesional IT yang berfokus pada pe
 
 ---
 
+### 🛣️ Career Path
+> *A journey of a thousand miles begins with a single line of code.*
+
+* **IT Staff** @ ITB Widya Gama Lumajang `(2025 - Sekarang)`
+* **Fullstack Web Developer** @ CV. Nusantara Tama `(2023 - 2024)`
+* **Fullstack Web Developer** @ PT. Mascitra Teknologi Informasi `(2020 - 2023)`
+* **Freelance Web Developer** `(2020 - 2025)` — *Status: Currently on hold.*
+
+---
+
+### 🎓 Education
+* **S1 Informatika** — ITB Widya Gama Lumajang `(2024 - Sekarang)`
+* **Rekayasa Perangkat Lunak (RPL)** — SMK Negeri 1 Lumajang `(2017 - 2020)`
+
+---
+
 ### 🚀 Tech Stack & Arsenals
 <div align="left">
   <img src="https://skillicons.dev/icons?i=html,css,js,php,laravel,vue,react,nextjs,tailwind,mysql,postgres,nodejs,ts,bootstrap" />
@@ -23,8 +39,6 @@ Halo! 👋 Saya **Teguh Sugiarto**. Seorang profesional IT yang berfokus pada pe
 ---
 
 ### 📌 Git Commit Convention
-> *Maintainability starts with a clear history.*
-
 | Type | Description | Example |
 | :--- | :--- | :--- |
 | `🚀 feat` | Fitur baru untuk user | `feat: add login glassmorphism` |
