@@ -31,10 +31,10 @@
         }
 
         .gold-border-hover:hover {
-            border-left: 4px solid #D4AF37;
+            border-left: 5px solid #D4AF37;
             background: white;
-            transform: translateX(10px);
-            box-shadow: 15px 15px 40px -15px rgba(212, 175, 55, 0.15);
+            transform: translateX(12px);
+            box-shadow: 20px 20px 50px -15px rgba(212, 175, 55, 0.15);
         }
 
         .section-divider {
@@ -42,65 +42,71 @@
             background: linear-gradient(90deg, transparent, #D4AF37, transparent);
             opacity: 0.3;
         }
+
+        .category-badge {
+            background: rgba(212, 175, 55, 0.1);
+            color: #B8860B;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <section class="min-h-screen flex items-center justify-center px-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-yellow-50 via-white to-white">
-        <div class="max-w-3xl text-center">
+    <header class="min-h-[70vh] flex items-center justify-center px-6 text-center">
+        <div class="max-w-3xl">
             <div class="mb-6 inline-block px-4 py-1 rounded-full bg-yellow-50 border border-yellow-200 text-[10px] font-bold tracking-[0.3em] text-yellow-700 uppercase">
-                Established 2020 • 6+ Years Experience
+                Established 2020 • Senior Fullstack Developer
             </div>
             <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 mb-6 tracking-tighter">
-                Teguh <span class="gold-gradient-text text-7xl md:text-9xl">Sugiarto</span>
+                Teguh <span class="gold-gradient-text">Sugiarto</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-500 font-light mb-10 leading-relaxed uppercase tracking-[0.1em]">
-                Fullstack Developer & <span class="text-slate-900 font-bold">IT Specialist</span>
+            <p class="text-lg text-slate-500 font-light mb-10 tracking-[0.2em] uppercase">
+                Crafting Excellence in <span class="text-slate-900 font-bold">Digital Ecosystems</span>
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#projects" class="bg-[#D4AF37] hover:bg-[#B8860B] text-white px-10 py-4 rounded-full font-bold shadow-xl transition-all">Explore Case Studies</a>
-                <a href="https://github.com/anteikudevs" class="glass-card px-10 py-4 rounded-full font-bold text-slate-800 hover:bg-white transition-all">Official GitHub</a>
+                <a href="#projects" class="bg-[#D4AF37] hover:bg-[#B8860B] text-white px-10 py-4 rounded-full font-bold shadow-xl transition-all">View Full Catalog</a>
+                <a href="https://github.com/anteikudevs" class="glass-card px-10 py-4 rounded-full font-bold text-slate-800 transition-all">GitHub Profile</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <main id="projects" class="max-w-4xl mx-auto py-24 px-6">
+    <main id="projects" class="max-w-4xl mx-auto py-20 px-6">
         
         <div class="mb-32">
             <div class="flex items-center gap-4 mb-12">
-                <span class="text-yellow-600 font-bold text-sm tracking-widest uppercase italic">01.</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 uppercase">WIGA MOBILE SYSTEM</h2>
+                <span class="text-yellow-600 font-bold text-sm tracking-widest italic">01.</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tighter">WIGA MOBILE SYSTEM</h2>
                 <div class="flex-grow section-divider"></div>
             </div>
 
             <div class="space-y-6">
-                <div class="glass-card p-8 rounded-3xl gold-border-hover flex flex-col md:flex-row md:items-center gap-6">
-                    <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 shrink-0">
-                        <i class="fas fa-file-invoice-dollar text-2xl"></i>
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover flex flex-col md:flex-row md:items-center gap-8">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-3xl flex items-center justify-center text-yellow-600 shrink-0 shadow-inner">
+                        <i class="fas fa-file-invoice-dollar text-3xl"></i>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-slate-800 uppercase tracking-tight">SIMkeu ITB Widya Gama</h4>
-                        <p class="text-slate-500 text-sm mt-1 leading-relaxed">Sistem Informasi Manajemen Keuangan terintegrasi untuk pengelolaan data finansial institusi secara real-time dan akurat.</p>
+                        <h4 class="text-2xl font-bold text-slate-800 tracking-tight">SIMkeu ITB Widya Gama</h4>
+                        <p class="text-slate-500 mt-2 leading-relaxed">Sistem Informasi Manajemen Keuangan institusi yang dirancang untuk transparansi, akurasi data finansial, dan pelaporan otomatis secara real-time.</p>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl gold-border-hover flex flex-col md:flex-row md:items-center gap-6">
-                    <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 shrink-0">
-                        <i class="fas fa-user-graduate text-2xl"></i>
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover flex flex-col md:flex-row md:items-center gap-8">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-3xl flex items-center justify-center text-yellow-600 shrink-0 shadow-inner">
+                        <i class="fas fa-user-graduate text-3xl"></i>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-slate-800 uppercase tracking-tight">SIAKAD ITB Widya Gama</h4>
-                        <p class="text-slate-500 text-sm mt-1 leading-relaxed">Sistem Informasi Akademik yang mencakup seluruh lifecycle mahasiswa dari pendaftaran hingga kelulusan.</p>
+                        <h4 class="text-2xl font-bold text-slate-800 tracking-tight">SIAKAD ITB Widya Gama</h4>
+                        <p class="text-slate-500 mt-2 leading-relaxed">Pusat data akademik terpadu yang mengelola kurikulum, nilai, jadwal kuliah, hingga administrasi mahasiswa dalam satu ekosistem digital.</p>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl gold-border-hover flex flex-col md:flex-row md:items-center gap-6">
-                    <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 shrink-0">
-                        <i class="fas fa-fingerprint text-2xl"></i>
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover flex flex-col md:flex-row md:items-center gap-8">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-3xl flex items-center justify-center text-yellow-600 shrink-0 shadow-inner">
+                        <i class="fas fa-key text-3xl"></i>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-slate-800 uppercase tracking-tight">SSO & Digital Signature</h4>
-                        <p class="text-slate-500 text-sm mt-1 leading-relaxed">Implementasi Single Sign-On dan Tanda Tangan Digital untuk keamanan dokumen dan autentikasi terpusat.</p>
+                        <h4 class="text-2xl font-bold text-slate-800 tracking-tight">SSO & Digital Signature</h4>
+                        <p class="text-slate-500 mt-2 leading-relaxed">Integrasi keamanan tingkat tinggi melalui Single Sign-On dan validasi dokumen legal menggunakan teknologi Tanda Tangan Digital.</p>
                     </div>
                 </div>
             </div>
@@ -108,102 +114,93 @@
 
         <div class="mb-32">
             <div class="flex items-center gap-4 mb-12">
-                <span class="text-yellow-600 font-bold text-sm tracking-widest uppercase italic">02.</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 uppercase">OFFICE PROJECT TEAM</h2>
-                <div class="flex-grow section-divider"></div>
-            </div>
-
-            <div class="space-y-4">
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">SIPro (Sistem Informasi Pemrograman)</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">Enterprise</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">SIPlah Datascripmall & Temprina (Marketplace)</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">E-Commerce</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">E-Office & E-Kelurahan (Gov System)</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">Government</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">JPMall & JPStore Marketplace</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">E-Commerce</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">SIMBMD & SIDIA (Asset Management)</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">Management</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">SIMPEG (Sistem Informasi Kepegawaian)</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">Human Resource</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">Antrian UNEJ & CIT Event System</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">Infrastructure</span>
-                </div>
-                <div class="glass-card p-6 rounded-2xl gold-border-hover flex justify-between items-center group">
-                    <span class="text-slate-700 font-bold tracking-tight uppercase group-hover:text-yellow-700 transition">MTA Indonesia & Bincigar System</span>
-                    <span class="text-[10px] font-bold text-yellow-600/50 uppercase border border-yellow-200 px-2 py-1 rounded">Corporate</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-32">
-            <div class="flex items-center gap-4 mb-12">
-                <span class="text-yellow-600 font-bold text-sm tracking-widest uppercase italic">03.</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 uppercase">EXTERNAL & FREELANCE</h2>
+                <span class="text-yellow-600 font-bold text-sm tracking-widest italic">02.</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tighter">OFFICE PROJECT TEAM</h2>
                 <div class="flex-grow section-divider"></div>
             </div>
 
             <div class="space-y-8">
-                <div class="glass-card p-8 rounded-3xl gold-border-hover">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-robot text-yellow-600"></i>
-                        <h4 class="font-bold text-slate-800 uppercase tracking-wide">Communication & AI Systems</h4>
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-shopping-cart text-yellow-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 text-xl uppercase tracking-wide">Marketplace & Commerce</h4>
                     </div>
-                    <p class="text-slate-500 text-sm ml-8 leading-relaxed">
-                        • Whatsapp ChatBOT Integration<br>
-                        • Web Online Chat System<br>
-                        • Generate Text to Image with PureJS (AI Integration)
+                    <p class="text-slate-600 leading-relaxed ml-10">
+                        • SIPlah Datascripmall & SIPlah Temprina<br>
+                        • JPMall & JPStore Marketplace<br>
+                        • RumahArisan System
                     </p>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl gold-border-hover">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-shopping-cart text-yellow-600"></i>
-                        <h4 class="font-bold text-slate-800 uppercase tracking-wide">Digital Commerce & Retail</h4>
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-city text-yellow-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 text-xl uppercase tracking-wide">Government & Administrative</h4>
                     </div>
-                    <p class="text-slate-500 text-sm ml-8 leading-relaxed">
-                        • OpenStore & Motorlistrikin.com<br>
-                        • Rental Mobil, Serama, & Toko Beras Ecommerce<br>
-                        • Kopma Aciko & IPulsaku Gift System<br>
-                        • POS Kasir: Restaurant, Bengkel, SIStok, & Laundry
+                    <p class="text-slate-600 leading-relaxed ml-10">
+                        • E-Office (Naskah Dinas Elektronik)<br>
+                        • E-Kelurahan (Sistem Informasi Layanan)<br>
+                        • SIMBMD (Barang Milik Daerah) & SIDIA (Persediaan)
                     </p>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl gold-border-hover">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-hospital text-yellow-600"></i>
-                        <h4 class="font-bold text-slate-800 uppercase tracking-wide">Health & Public Services</h4>
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-users-cog text-yellow-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 text-xl uppercase tracking-wide">Corporate & Infrastructure</h4>
                     </div>
-                    <p class="text-slate-500 text-sm ml-8 leading-relaxed">
-                        • Klinik PROMEDIS Management System<br>
-                        • Web BPOM (Sistem Informasi)<br>
-                        • Posyandu Digital & Survei Perusahaan
+                    <p class="text-slate-600 leading-relaxed ml-10">
+                        • SIMPEG (Sistem Informasi Kepegawaian)<br>
+                        • MTA Indonesia & Bincigar System<br>
+                        • Antrian UNEJ & CIT Event Management<br>
+                        • SMesta & SIPro Management
                     </p>
                 </div>
+            </div>
+        </div>
 
-                <div class="glass-card p-8 rounded-3xl gold-border-hover">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-briefcase text-yellow-600"></i>
-                        <h4 class="font-bold text-slate-800 uppercase tracking-wide">Professional & Technical Portals</h4>
+        <div class="mb-32">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-yellow-600 font-bold text-sm tracking-widest italic">03.</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tighter">EXTERNAL & FREELANCE</h2>
+                <div class="flex-grow section-divider"></div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-brain text-yellow-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 text-xl uppercase tracking-wide">Modern Tech & AI Integration</h4>
                     </div>
-                    <p class="text-slate-500 text-sm ml-8 leading-relaxed">
-                        • IndonesiaLegal & Neracaruang News Portal<br>
-                        • WBS Pelindo & iaifi-ips Company Profile<br>
+                    <p class="text-slate-600 leading-relaxed ml-10">
+                        • Whatsapp ChatBOT & Web Online Chat<br>
+                        • Generate Text to Image with PureJS<br>
                         • Battery Swapping Monitoring (Firebase Realtime)<br>
-                        • GIS (Geographic Information System)
+                        • Minigolf.io Management with Vuejs
+                    </p>
+                </div>
+
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-cash-register text-yellow-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 text-xl uppercase tracking-wide">Retail & POS Solutions</h4>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed ml-10">
+                        • OpenStore, Motorlistrikin.com, & Rental Mobil<br>
+                        • Serama, Toko Beras, & Kopma Aciko Ecommerce<br>
+                        • Kasir: Restaurant, Bengkel, SIStok, & Laundry
+                    </p>
+                </div>
+
+                <div class="glass-card p-10 rounded-[2.5rem] gold-border-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-briefcase text-yellow-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 text-xl uppercase tracking-wide">Corporate Portals & Public</h4>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed ml-10">
+                        • Klinik PROMEDIS, Posyandu, & Web BPOM<br>
+                        • E-Learning & SIPapring System<br>
+                        • IndonesiaLegal, WBS Pelindo, & Company Profiles
                     </p>
                 </div>
             </div>
@@ -212,16 +209,16 @@
 
     <footer class="py-24 bg-white border-t border-slate-100 text-center">
         <h4 class="gold-gradient-text text-4xl font-extrabold mb-4 italic">AnteikuDevs ✅</h4>
-        <p class="text-slate-400 text-xs tracking-[0.4em] uppercase font-bold mb-10">Teguh Sugiarto • Lumajang, Indonesia</p>
+        <p class="text-slate-400 text-xs tracking-[0.4em] uppercase font-bold mb-12">Teguh Sugiarto • Lumajang, Indonesia</p>
         
         <div class="flex justify-center gap-8 mb-16">
-            <a href="#" class="text-slate-300 hover:text-yellow-600 transition-all text-xl"><i class="fab fa-github"></i></a>
-            <a href="#" class="text-slate-300 hover:text-yellow-600 transition-all text-xl"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="text-slate-300 hover:text-yellow-600 transition-all text-xl"><i class="fas fa-envelope"></i></a>
+            <a href="#" class="text-slate-300 hover:text-yellow-600 transition-all text-2xl"><i class="fab fa-github"></i></a>
+            <a href="#" class="text-slate-300 hover:text-yellow-600 transition-all text-2xl"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-slate-300 hover:text-yellow-600 transition-all text-2xl"><i class="fas fa-envelope"></i></a>
         </div>
         
-        <p class="text-slate-300 text-[10px] font-medium uppercase tracking-widest italic">
-            "Turning code into gold, one project at a time."
+        <p class="text-slate-300 text-[10px] font-bold uppercase tracking-widest italic">
+            "Excellence In Every Line Of Code."
         </p>
     </footer>
 
