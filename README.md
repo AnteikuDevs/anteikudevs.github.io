@@ -3,6 +3,10 @@
   
   <h1><img src="https://img.shields.io/badge/Halo!%20Saya%20Teguh%20Sugiarto-20232a?style=for-the-badge&logo=github&logoColor=61dafb" alt="Header" /></h1>
   <p><b>Fullstack Developer | IT Staff at ITB Widya Gama Lumajang</b></p>
+
+  <a href="https://anteikudevs.github.io/portfolio">
+    <img src="https://img.shields.io/badge/🌐%20View%20My%20Portfolio-61dafb?style=for-the-badge&labelColor=20232a&logo=google-chrome&logoColor=61dafb" alt="Portfolio" />
+  </a>
 </div>
 
 ### 🪐 Professional IT Enthusiast
@@ -59,9 +63,10 @@ Halo! 👋 Saya **Teguh Sugiarto**. Seorang profesional IT yang berfokus pada pe
 
 ### 📫 Connect with Me
 <div align="left">
-  <a href="mailto:anteikudevs@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://anteikudevs.github.io/portfolio"><img src="https://img.shields.io/badge/Portfolio-61dafb?style=for-the-badge&logo=google-chrome&logoColor=white" /></a>
+  <a href="mailto:teguhsugiarto.webdev@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   <a href="https://linkedin.com/in/teguhdevs"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  <a href="https://instagram.com/anteikudevs"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /></a>
+  <a href="https://instagram.com/teguhdevs"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /></a>
 </div>
 
 <br />
