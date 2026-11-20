@@ -5,246 +5,600 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teguh Sugiarto | Senior Fullstack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
         :root {
-            --gold-primary: #D4AF37;
-            --gold-light: #F9F6EE;
-            --slate-deep: #0f172a;
+            --nv-green: #76B900;
+            --nv-green-dark: #5A8F00;
+            --nv-green-glow: rgba(118, 185, 0, 0.22);
+            --surface-bg: #F6F8F7;
+            --surface-card: rgba(255, 255, 255, 0.82);
+            --border-subtle: rgba(118, 185, 0, 0.16);
         }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
-            background: #f8fafc;
-            color: #334155;
+            background-color: var(--surface-bg);
+            color: #1E293B;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Glassmorphism Effect */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        .font-mono-tech {
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .gold-gradient {
-            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #FFD700 100%);
+        /* Subtle Architectural Tech Grid */
+        .tech-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(118, 185, 0, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(118, 185, 0, 0.045) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 40%, transparent 100%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Soft Ambient Orbs */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 9999px;
+            filter: blur(110px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+
+        /* Soft Premium Glass Card */
+        .nv-card {
+            background: var(--surface-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04), 0 4px 12px -4px rgba(118, 185, 0, 0.03);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.35s ease,
+                        background-color 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0%;
+            background: linear-gradient(180deg, #76B900 0%, #9BE31B 100%);
+            transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .nv-card:hover {
+            background: #FFFFFF;
+            border-color: rgba(118, 185, 0, 0.42);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 8px 24px -6px rgba(118, 185, 0, 0.14);
+        }
+
+        .nv-card:hover::before {
+            height: 100%;
+        }
+
+        /* NVIDIA Green Gradient Text */
+        .nv-gradient-text {
+            background: linear-gradient(135deg, #4B7800 0%, #76B900 55%, #8CD40B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .gold-button {
-            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 100%);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* Primary CTA Button */
+        .nv-btn-primary {
+            background: linear-gradient(135deg, #649E00 0%, #76B900 100%);
+            color: #FFFFFF;
+            box-shadow: 0 10px 25px -5px rgba(118, 185, 0, 0.35);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .gold-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        .nv-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px -6px rgba(118, 185, 0, 0.48);
+            background: linear-gradient(135deg, #5A8F00 0%, #76B900 100%);
         }
 
-        .project-row {
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+        /* Secondary Glass Button */
+        .nv-btn-secondary {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(203, 213, 225, 0.8);
+            color: #1E293B;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .project-row:hover {
-            background: white;
-            border-left: 3px solid #D4AF37;
-            transform: translateX(8px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        .nv-btn-secondary:hover {
+            background: #FFFFFF;
+            border-color: #76B900;
+            color: #4B7800;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.08);
         }
 
-        .shape {
-            position: absolute;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
+        /* Icon Box Styling */
+        .nv-icon-box {
+            background: linear-gradient(135deg, rgba(118, 185, 0, 0.12) 0%, rgba(118, 185, 0, 0.04) 100%);
+            border: 1px solid rgba(118, 185, 0, 0.2);
+            color: #5A8F00;
+            transition: all 0.35s ease;
+        }
+
+        .nv-card:hover .nv-icon-box {
+            background: #76B900;
+            color: #FFFFFF;
+            border-color: #76B900;
+            box-shadow: 0 6px 16px rgba(118, 185, 0, 0.3);
+        }
+
+        /* Status Pulse */
+        .pulse-dot {
+            box-shadow: 0 0 0 0 rgba(118, 185, 0, 0.6);
+            animation: nvPulse 2.2s infinite;
+        }
+
+        @keyframes nvPulse {
+            0% { box-shadow: 0 0 0 0 rgba(118, 185, 0, 0.55); }
+            70% { box-shadow: 0 0 0 8px rgba(118, 185, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(118, 185, 0, 0); }
+        }
+
+        /* Initial invisible state for Anime.js scroll reveals */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(24px);
         }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-[#76B900]/20 selection:text-[#4B7800]">
 
-    <div class="shape w-96 h-96 bg-yellow-200 top-0 right-0 rounded-full"></div>
-    <div class="shape w-80 h-80 bg-blue-100 bottom-0 left-0 rounded-full"></div>
+    <!-- Background Architecture -->
+    <div class="tech-grid"></div>
+    <div id="orb-1" class="ambient-orb w-[34rem] h-[34rem] bg-[#76B900]/25 -top-24 -right-24"></div>
+    <div id="orb-2" class="ambient-orb w-[28rem] h-[28rem] bg-emerald-200/35 top-[42%] -left-24"></div>
+    <div id="orb-3" class="ambient-orb w-[30rem] h-[30rem] bg-[#76B900]/15 bottom-0 right-12"></div>
 
-    <header class="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden text-center">
-        <div class="max-w-4xl w-full z-10">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full glass-card border border-yellow-200">
-                <span class="text-xs font-bold tracking-widest text-yellow-700 uppercase">Professional Portfolio</span>
+    <!-- Top Floating Navbar -->
+    <nav class="sticky top-4 z-50 max-w-5xl mx-auto px-6">
+        <div class="bg-white/80 backdrop-blur-xl border border-slate-200/80 rounded-full px-6 py-3 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.03)]">
+            <a href="#" class="flex items-center gap-2.5 font-extrabold text-slate-900 tracking-tight text-lg">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#76B900] pulse-dot"></span>
+                <span>AnteikuDevs<span class="text-[#76B900]">.</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <a href="#campus" class="hover:text-[#5A8F00] transition-colors">Campus Ecosystem</a>
+                <a href="#wira" class="hover:text-[#5A8F00] transition-colors">Wira Digital</a>
+                <a href="#team" class="hover:text-[#5A8F00] transition-colors">Enterprise</a>
+                <a href="#freelance" class="hover:text-[#5A8F00] transition-colors">Directory</a>
             </div>
-            <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Teguh <span class="gold-gradient">Sugiarto</span>
+            <a href="mailto:teguhsugiarto.webdev@gmail.com" class="text-xs font-bold px-4 py-2 rounded-full bg-[#76B900]/10 text-[#4B7800] hover:bg-[#76B900] hover:text-white transition-all">
+                Collaborate
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[86vh] flex items-center justify-center px-6 text-center">
+        <div class="max-w-4xl w-full z-10">
+            <div class="hero-stagger opacity-0 inline-flex items-center gap-2.5 px-4 py-1.5 mb-7 rounded-full bg-white/90 border border-[#76B900]/25 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-[#76B900]"></span>
+                <span class="font-mono-tech text-[11px] font-semibold tracking-widest text-[#4B7800] uppercase">Fullstack System Architect</span>
+            </div>
+
+            <h1 class="hero-stagger opacity-0 text-5xl sm:text-7xl md:text-8xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.05]">
+                Teguh <span class="nv-gradient-text">Sugiarto</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-500 font-light mb-10 leading-relaxed italic">
-                "Transforming Complex Logic into <span class="text-slate-800 font-medium">Elegant Digital Solutions</span>"
+
+            <p class="hero-stagger opacity-0 text-lg md:text-2xl text-slate-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+                Transforming Complex Logic into <span class="text-slate-900 font-semibold">High-Performance Digital Ecosystems</span> with Precision & Elegance.
             </p>
-            <div class="flex flex-wrap justify-center gap-5">
-                <a href="#projects" class="gold-button text-white px-10 py-4 rounded-full font-bold shadow-lg">
-                    Explore My Works
+
+            <div class="hero-stagger opacity-0 flex flex-wrap justify-center gap-4">
+                <a href="#campus" class="nv-btn-primary px-9 py-4 rounded-full font-bold text-sm tracking-wide flex items-center gap-2">
+                    <span>Explore Architecture</span>
+                    <i class="fas fa-arrow-down text-xs"></i>
                 </a>
-                <a href="https://github.com/anteikudevs" class="glass-card text-slate-800 px-10 py-4 rounded-full font-bold hover:bg-white transition-all">
-                    <i class="fab fa-github mr-2"></i> GitHub
+                <a href="https://github.com/anteikudevs" target="_blank" class="nv-btn-secondary px-9 py-4 rounded-full font-bold text-sm tracking-wide flex items-center gap-2">
+                    <i class="fab fa-github text-base"></i>
+                    <span>GitHub Profile</span>
                 </a>
+            </div>
+
+            <!-- Subtle Metrics Strip -->
+            <div class="hero-stagger opacity-0 mt-16 pt-8 border-t border-slate-200/70 grid grid-cols-3 gap-4 max-w-xl mx-auto">
+                <div>
+                    <div class="text-2xl md:text-3xl font-extrabold text-slate-900"><span class="stat-counter" data-target="25">0</span>+</div>
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-1">Systems Shipped</div>
+                </div>
+                <div class="border-x border-slate-200/70">
+                    <div class="text-2xl md:text-3xl font-extrabold text-[#5A8F00]"><span class="stat-counter" data-target="6">0</span>+</div>
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-1">Years Engineering</div>
+                </div>
+                <div>
+                    <div class="text-2xl md:text-3xl font-extrabold text-slate-900">99.9<span class="text-[#76B900]">%</span></div>
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-1">Core Uptime</div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main id="projects" class="max-w-5xl mx-auto py-24 px-6">
+    <main id="projects" class="max-w-5xl mx-auto py-16 px-6 space-y-28">
         
-        <div class="mb-24">
-            <div class="flex flex-col items-center mb-16 text-center">
-                <div class="w-16 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mb-4"></div>
-                <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-widest">Masterpiece Ecosystem</h2>
-                <p class="text-slate-500 mt-2">Sistem Informasi Terpadu ITB Widya Gama Lumajang (Wiga Mobile)</p>
+        <!-- SECTION 1: MASTERPIECE ECOSYSTEM (KAMPUS) -->
+        <section id="campus" class="scroll-mt-24">
+            <div class="reveal-item flex flex-col items-center mb-14 text-center">
+                <span class="font-mono-tech text-xs font-semibold uppercase tracking-widest text-[#5A8F00] bg-[#76B900]/10 px-3.5 py-1 rounded-full mb-3">
+                    01 // Institutional Core
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Masterpiece Ecosystem</h2>
+                <p class="text-slate-500 mt-2 max-w-xl">Sistem Informasi Terpadu ITB Widya Gama Lumajang & Wiga Mobile</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card p-8 rounded-[2rem] project-row group">
-                    <div class="w-12 h-12 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 mb-6"><i class="fas fa-university text-xl"></i></div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-2">SIMkeu</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed">Arsitektur manajemen keuangan institusi yang presisi dan akuntabel.</p>
+                <div class="reveal-item nv-card p-8 rounded-[1.75rem] group">
+                    <div class="w-12 h-12 nv-icon-box rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-university text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">SIMkeu</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Arsitektur manajemen keuangan institusi yang presisi, terintegrasi, dan akuntabel.</p>
                 </div>
-                <div class="glass-card p-8 rounded-[2rem] project-row group">
-                    <div class="w-12 h-12 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 mb-6"><i class="fas fa-graduation-cap text-xl"></i></div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-2">SIAKAD</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed">Digitalisasi akademik menyeluruh untuk ribuan entitas mahasiswa.</p>
-                </div>
-                <div class="glass-card p-8 rounded-[2rem] project-row group">
-                    <div class="w-12 h-12 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 mb-6"><i class="fas fa-shield-alt text-xl"></i></div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-2">SSO & Security</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed">Satu gerbang akses aman dengan standar enkripsi modern.</p>
-                </div>
-                <div class="glass-card p-8 rounded-[2rem] project-row group">
-                    <div class="w-12 h-12 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 mb-6"><i class="fas fa-signature text-xl"></i></div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-2">Digital Signature</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed">Legalitas dokumen digital dengan integrasi verifikasi instan.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="mb-24">
-            <h3 class="text-xl font-bold text-slate-800 mb-10 flex items-center gap-4">
-                <span class="w-8 h-[1px] bg-yellow-500"></span> 
-                PROJECT TEAM
-            </h3>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-code-branch"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">SIPro</h4><p class="text-xs text-slate-500 italic uppercase">Sistem Informasi Pemrograman</p></div>
+                <div class="reveal-item nv-card p-8 rounded-[1.75rem] group">
+                    <div class="w-12 h-12 nv-icon-box rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">SIAKAD</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Digitalisasi akademik menyeluruh untuk ribuan entitas mahasiswa dan dosen.</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-green-50 text-green-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-seedling"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">MTA Indonesia</h4><p class="text-xs text-slate-500 italic uppercase">Sistem Informasi Perusahaan Pupuk</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-envelope-open-text"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">E-Office</h4><p class="text-xs text-slate-500 italic uppercase">Sistem Naskah Dinas Elektronik</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-landmark"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">E-Kelurahan</h4><p class="text-xs text-slate-500 italic uppercase">Sistem Informasi Kelurahan Terpadu</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-shopping-cart"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">JPMall / JPStore</h4><p class="text-xs text-slate-500 italic uppercase">Enterprise Marketplace System</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-store-alt"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">SIPlah Temprina & Datascripmall</h4><p class="text-xs text-slate-500 italic uppercase">B2B Marketplace Nasional</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-users"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">RumahArisan</h4><p class="text-xs text-slate-500 italic uppercase">Management Arisan System</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-slate-50 text-slate-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-boxes"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">SIDIA & SIMBMD</h4><p class="text-xs text-slate-500 italic uppercase">Sistem Inventaris & Manajemen Barang</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-user-tie"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">SIMPEG</h4><p class="text-xs text-slate-500 italic uppercase">Sistem Informasi Kepegawaian</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-calendar-alt"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">CIT Event & Antrian UNEJ</h4><p class="text-xs text-slate-500 italic uppercase">Event & Queue Management System</p></div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-stone-50 text-stone-600 rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-info-circle"></i></div>
-                    <div><h4 class="text-slate-800 font-bold">Bincigar & SMesta</h4><p class="text-xs text-slate-500 italic uppercase">Corporate Information Systems</p></div>
-                </div>
-            </div>
-        </div>
 
-        <div class="mb-24">
-            <h3 class="text-xl font-bold text-slate-800 mb-10 flex items-center gap-4">
-                <span class="w-8 h-[1px] bg-yellow-500"></span> 
-                EXTERNAL & FREELANCE DIRECTORY
-            </h3>
+                <div class="reveal-item nv-card p-8 rounded-[1.75rem] group">
+                    <div class="w-12 h-12 nv-icon-box rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">SSO & Security</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Satu gerbang otentikasi terpusat dengan standar enkripsi modern.</p>
+                </div>
+
+                <div class="reveal-item nv-card p-8 rounded-[1.75rem] group">
+                    <div class="w-12 h-12 nv-icon-box rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-signature text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Digital Signature</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Otentikasi legalitas dokumen digital dengan verifikasi QR instan.</p>
+                </div>
+
+                <a href="https://ict.itbwigalumajang.ac.id" target="_blank" class="reveal-item nv-card p-8 rounded-[1.75rem] group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 nv-icon-box rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-server text-xl"></i>
+                        </div>
+                        <span class="font-mono-tech text-[11px] font-semibold text-[#4B7800] bg-[#76B900]/10 px-3 py-1 rounded-full border border-[#76B900]/20 group-hover:bg-[#76B900] group-hover:text-white transition-colors">
+                            LIVE <i class="fas fa-arrow-up-right-from-square ml-1 text-[9px]"></i>
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#5A8F00] transition-colors">Portal ICT</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-3">Pusat layanan infrastruktur TI, dokumentasi sistem, dan dukungan teknis kampus.</p>
+                    <span class="font-mono-tech text-[11px] text-slate-400">ict.itbwigalumajang.ac.id</span>
+                </a>
+
+                <a href="https://simak.itbwigalumajang.ac.id" target="_blank" class="reveal-item nv-card p-8 rounded-[1.75rem] group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 nv-icon-box rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-award text-xl"></i>
+                        </div>
+                        <span class="font-mono-tech text-[11px] font-semibold text-[#4B7800] bg-[#76B900]/10 px-3 py-1 rounded-full border border-[#76B900]/20 group-hover:bg-[#76B900] group-hover:text-white transition-colors">
+                            LIVE <i class="fas fa-arrow-up-right-from-square ml-1 text-[9px]"></i>
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#5A8F00] transition-colors">SIMAK</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-3">Sistem Informasi Manajemen Akreditasi untuk pengelolaan borang dan penjaminan mutu.</p>
+                    <span class="font-mono-tech text-[11px] text-slate-400">simak.itbwigalumajang.ac.id</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 2: WIRA DIGITAL SOLUTIONS -->
+        <section id="wira" class="scroll-mt-24">
+            <div class="reveal-item flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 border-b border-slate-200/80 pb-6">
+                <div>
+                    <span class="font-mono-tech text-xs font-semibold uppercase tracking-widest text-[#5A8F00]">02 // Commercial SaaS Ventures</span>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Wira Digital Solutions</h3>
+                </div>
+                <a href="https://wiradigitalsolutions.my.id" target="_blank" class="font-mono-tech text-xs font-semibold text-[#4B7800] hover:text-[#76B900] transition-colors flex items-center gap-2">
+                    <span>wiradigitalsolutions.my.id</span>
+                    <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="https://pos.wiradigitalsolutions.my.id" target="_blank" class="reveal-item nv-card p-7 rounded-[1.75rem] group block">
+                    <div class="flex justify-between items-start mb-5">
+                        <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center">
+                            <i class="fas fa-cash-register text-lg"></i>
+                        </div>
+                        <span class="font-mono-tech text-[11px] font-semibold text-slate-500 group-hover:text-[#5A8F00] transition-colors flex items-center gap-1.5">
+                            LAUNCH <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                        </span>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#5A8F00] transition-colors">Smart POS & Financial Suite</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Aplikasi kasir terintegrasi laporan keuangan otomatis (Laba/Rugi) dan algoritma estimasi ketahanan stok.</p>
+                    <span class="font-mono-tech text-[11px] text-slate-400">pos.wiradigitalsolutions.my.id</span>
+                </a>
+
+                <a href="https://board.wiradigitalsolutions.my.id" target="_blank" class="reveal-item nv-card p-7 rounded-[1.75rem] group block">
+                    <div class="flex justify-between items-start mb-5">
+                        <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center">
+                            <i class="fas fa-columns text-lg"></i>
+                        </div>
+                        <span class="font-mono-tech text-[11px] font-semibold text-slate-500 group-hover:text-[#5A8F00] transition-colors flex items-center gap-1.5">
+                            LAUNCH <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                        </span>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#5A8F00] transition-colors">Wira Kanban Board</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Platform manajemen proyek dan kolaborasi tim berbasis visual workflow yang ringan dan responsif.</p>
+                    <span class="font-mono-tech text-[11px] text-slate-400">board.wiradigitalsolutions.my.id</span>
+                </a>
+
+                <a href="https://kas.wiradigitalsolutions.my.id" target="_blank" class="reveal-item nv-card p-7 rounded-[1.75rem] group block">
+                    <div class="flex justify-between items-start mb-5">
+                        <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center">
+                            <i class="fas fa-wallet text-lg"></i>
+                        </div>
+                        <span class="font-mono-tech text-[11px] font-semibold text-slate-500 group-hover:text-[#5A8F00] transition-colors flex items-center gap-1.5">
+                            LAUNCH <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                        </span>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#5A8F00] transition-colors">Manajemen Kas Kelas</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Sistem pencatatan iuran, mutasi masuk/keluar, dan transparansi saldo keuangan organisasi maupun kelas.</p>
+                    <span class="font-mono-tech text-[11px] text-slate-400">kas.wiradigitalsolutions.my.id</span>
+                </a>
+
+                <div class="reveal-item nv-card p-7 rounded-[1.75rem] group">
+                    <div class="flex justify-between items-start mb-5">
+                        <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center">
+                            <i class="fas fa-vote-yea text-lg"></i>
+                        </div>
+                        <span class="font-mono-tech text-[11px] font-semibold text-[#4B7800] bg-[#76B900]/10 px-3 py-1 rounded-full">
+                            E-VOTING
+                        </span>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Sistem Pemilihan Raya (PEMIRA)</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Platform e-voting pemilihan Presiden Mahasiswa dengan validasi pemilih ketat dan rekapitulasi real-time.</p>
+                    <span class="font-mono-tech text-[11px] text-slate-400">Wira Digital Solutions</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PROJECT TEAM -->
+        <section id="team" class="scroll-mt-24">
+            <div class="reveal-item mb-10 border-b border-slate-200/80 pb-6">
+                <span class="font-mono-tech text-xs font-semibold uppercase tracking-widest text-[#5A8F00]">03 // Enterprise & Gov Collaborations</span>
+                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Project Team</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-code-branch"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">SIPro</h4><p class="text-xs text-slate-500">Sistem Informasi Pemrograman</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-seedling"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">MTA Indonesia</h4><p class="text-xs text-slate-500">Sistem Informasi Perusahaan Pupuk</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-envelope-open-text"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">E-Office</h4><p class="text-xs text-slate-500">Sistem Naskah Dinas Elektronik</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-landmark"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">E-Kelurahan</h4><p class="text-xs text-slate-500">Sistem Informasi Kelurahan Terpadu</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-shopping-cart"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">JPMall / JPStore</h4><p class="text-xs text-slate-500">Enterprise Marketplace System</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-store-alt"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">SIPlah Temprina & Datascripmall</h4><p class="text-xs text-slate-500">B2B Marketplace Nasional</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-users"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">RumahArisan</h4><p class="text-xs text-slate-500">Management Arisan System</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-boxes"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">SIDIA & SIMBMD</h4><p class="text-xs text-slate-500">Sistem Inventaris & Manajemen Barang</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-user-tie"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">SIMPEG</h4><p class="text-xs text-slate-500">Sistem Informasi Kepegawaian</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-calendar-alt"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">CIT Event & Antrian UNEJ</h4><p class="text-xs text-slate-500">Event & Queue Management System</p></div>
+                </div>
+                <div class="reveal-item nv-card p-5 rounded-2xl flex items-center gap-5 md:col-span-2">
+                    <div class="w-11 h-11 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-info-circle"></i></div>
+                    <div><h4 class="text-slate-900 font-bold text-base">Bincigar & SMesta</h4><p class="text-xs text-slate-500">Corporate Information Systems</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: EXTERNAL & FREELANCE DIRECTORY -->
+        <section id="freelance" class="scroll-mt-24">
+            <div class="reveal-item mb-10 border-b border-slate-200/80 pb-6">
+                <span class="font-mono-tech text-xs font-semibold uppercase tracking-widest text-[#5A8F00]">04 // Custom Engineering & R&D</span>
+                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">External & Freelance Directory</h3>
+            </div>
+
             <div class="grid grid-cols-1 gap-4">
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center"><i class="fas fa-robot"></i></div>
+                <div class="reveal-item nv-card p-6 rounded-2xl flex items-center gap-6">
+                    <div class="w-12 h-12 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-robot text-lg"></i></div>
                     <div>
-                        <h4 class="text-slate-800 font-bold">Automation & Chat Systems</h4>
-                        <p class="text-xs text-slate-500">Whatsapp ChatBOT, Web Chat Online, & API Integrations</p>
+                        <h4 class="text-slate-900 font-bold">Automation & Chat Systems</h4>
+                        <p class="text-sm text-slate-500 mt-0.5">Whatsapp ChatBOT, Web Chat Online, & API Integrations</p>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center"><i class="fas fa-shopping-bag"></i></div>
+                <div class="reveal-item nv-card p-6 rounded-2xl flex items-center gap-6">
+                    <div class="w-12 h-12 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-shopping-bag text-lg"></i></div>
                     <div>
-                        <h4 class="text-slate-800 font-bold">Commerce & Retail Ecosystem</h4>
-                        <p class="text-xs text-slate-500">OpenStore, Motorlistrikin, Rental Mobil, POS Kasir (Bengkel, Laundry, Resto)</p>
+                        <h4 class="text-slate-900 font-bold">Commerce & Retail Ecosystem</h4>
+                        <p class="text-sm text-slate-500 mt-0.5">OpenStore, Motorlistrikin, Rental Mobil, POS Kasir (Bengkel, Laundry, Resto)</p>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-red-50 text-red-600 rounded-full flex items-center justify-center"><i class="fas fa-heartbeat"></i></div>
+                <div class="reveal-item nv-card p-6 rounded-2xl flex items-center gap-6">
+                    <div class="w-12 h-12 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-heartbeat text-lg"></i></div>
                     <div>
-                        <h4 class="text-slate-800 font-bold">Health & Public Service</h4>
-                        <p class="text-xs text-slate-500">Klinik PROMEDIS, Posyandu System, & Web BPOM Integration</p>
+                        <h4 class="text-slate-900 font-bold">Health & Public Service</h4>
+                        <p class="text-sm text-slate-500 mt-0.5">Klinik PROMEDIS, Posyandu System, & Web BPOM Integration</p>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center"><i class="fas fa-laptop-code"></i></div>
+                <div class="reveal-item nv-card p-6 rounded-2xl flex items-center gap-6">
+                    <div class="w-12 h-12 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-laptop-code text-lg"></i></div>
                     <div>
-                        <h4 class="text-slate-800 font-bold">Modern Web Technologies</h4>
-                        <p class="text-xs text-slate-500">AI Text-to-Image (PureJS), Minigolf Management (Vuejs), Firebase IoT Monitoring</p>
+                        <h4 class="text-slate-900 font-bold">Modern Web Technologies</h4>
+                        <p class="text-sm text-slate-500 mt-0.5">AI Text-to-Image (PureJS), Minigolf Management (Vuejs), Firebase IoT Monitoring</p>
                     </div>
                 </div>
-                <div class="glass-card p-6 rounded-2xl project-row flex items-center gap-6">
-                    <div class="w-10 h-10 bg-slate-50 text-slate-600 rounded-full flex items-center justify-center"><i class="fas fa-fingerprint"></i></div>
+                <div class="reveal-item nv-card p-6 rounded-2xl flex items-center gap-6">
+                    <div class="w-12 h-12 nv-icon-box rounded-xl flex items-center justify-center shrink-0"><i class="fas fa-fingerprint text-lg"></i></div>
                     <div>
-                        <h4 class="text-slate-800 font-bold">Corporate Portals & Legal</h4>
-                        <p class="text-xs text-slate-500">WBS Pelindo, IndonesiaLegal, iaifi-ips, & Neracaruang</p>
+                        <h4 class="text-slate-900 font-bold">Corporate Portals & Legal</h4>
+                        <p class="text-sm text-slate-500 mt-0.5">WBS Pelindo, IndonesiaLegal, iaifi-ips, & Neracaruang</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
     </main>
 
-    <footer class="relative py-24 bg-white border-t border-slate-100 overflow-hidden text-center">
+    <!-- Footer -->
+    <footer class="relative mt-24 py-20 bg-white/90 backdrop-blur-xl border-t border-slate-200/80 text-center">
         <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <h4 class="text-3xl font-extrabold text-slate-900 mb-4">AnteikuDevs<span class="text-yellow-500">.</span></h4>
-            <p class="text-slate-500 mb-10 italic">"Excellence in every line of code, success in every collaboration."</p>
-            <div class="flex justify-center gap-8 mb-16">
-                <a href="https://github.com/anteikudevs" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full glass-card text-slate-600 hover:text-yellow-600 transition-all text-xl" title="GitHub">
+            <div class="inline-flex items-center gap-2 font-extrabold text-3xl text-slate-900 mb-3 tracking-tight">
+                <span>AnteikuDevs<span class="text-[#76B900]">.</span></span>
+            </div>
+            <p class="text-slate-500 mb-10 max-w-md mx-auto text-sm leading-relaxed">
+                "Excellence in every line of code, precision in every system architecture."
+            </p>
+            <div class="flex justify-center gap-5 mb-14">
+                <a href="https://github.com/anteikudevs" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl nv-card text-slate-600 hover:text-[#5A8F00] text-lg" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                
-                <a href="https://www.linkedin.com/in/teguhdevs/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full glass-card text-slate-600 hover:text-yellow-600 transition-all text-xl" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/teguhdevs/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl nv-card text-slate-600 hover:text-[#5A8F00] text-lg" title="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                
-                <a href="mailto:teguhsugiarto.webdev@gmail.com" class="w-12 h-12 flex items-center justify-center rounded-full glass-card text-slate-600 hover:text-yellow-600 transition-all text-xl" title="Email Me">
+                <a href="mailto:teguhsugiarto.webdev@gmail.com" class="w-12 h-12 flex items-center justify-center rounded-2xl nv-card text-slate-600 hover:text-[#5A8F00] text-lg" title="Email Me">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
-            <div class="text-xs text-slate-400 uppercase tracking-widest font-bold">&copy; 2026 — Teguh Sugiarto. All Rights Reserved.</div>
+            <div class="font-mono-tech text-[11px] text-slate-400 uppercase tracking-widest">
+                &copy; 2026 — Teguh Sugiarto. Engineered with Precision.
+            </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Hero Stagger Entrance Animation
+            anime({
+                targets: '.hero-stagger',
+                translateY: [28, 0],
+                opacity: [0, 1],
+                duration: 950,
+                delay: anime.stagger(130, { start: 150 }),
+                easing: 'easeOutExpo'
+            });
+
+            // 2. Animated Telemetry Counters
+            document.querySelectorAll('.stat-counter').forEach(el => {
+                const targetVal = parseInt(el.getAttribute('data-target'), 10);
+                const obj = { val: 0 };
+                anime({
+                    targets: obj,
+                    val: targetVal,
+                    round: 1,
+                    duration: 1800,
+                    delay: 650,
+                    easing: 'easeOutQuart',
+                    update: () => {
+                        el.textContent = obj.val;
+                    }
+                });
+            });
+
+            // 3. Ambient Organic Orb Floating Motion
+            anime({
+                targets: '#orb-1',
+                translateX: [-25, 25],
+                translateY: [-15, 30],
+                scale: [1, 1.08],
+                duration: 9000,
+                direction: 'alternate',
+                loop: true,
+                easing: 'easeInOutSine'
+            });
+
+            anime({
+                targets: '#orb-2',
+                translateX: [20, -20],
+                translateY: [25, -20],
+                scale: [1.05, 0.96],
+                duration: 11000,
+                direction: 'alternate',
+                loop: true,
+                easing: 'easeInOutSine'
+            });
+
+            // 4. IntersectionObserver Scroll Reveal with Anime.js
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                const visibleBatch = [];
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        visibleBatch.push(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+
+                if (visibleBatch.length > 0) {
+                    anime({
+                        targets: visibleBatch,
+                        translateY: [24, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        delay: anime.stagger(75),
+                        easing: 'easeOutCubic'
+                    });
+                }
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.reveal-item').forEach(item => {
+                revealObserver.observe(item);
+            });
+        });
+    </script>
 
 </body>
 </html>
